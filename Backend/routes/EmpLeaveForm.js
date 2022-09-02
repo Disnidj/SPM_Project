@@ -38,7 +38,7 @@ router.get("/GetAllLeaveReq",(req,res)=>{
 
         return res.status(200).json({
             success:true,
-            GetAllReq
+            existingData:GetAllReq
         });
     });
 });

@@ -35,15 +35,15 @@ const EmpAttendaceSchema = new mongoose.Schema({
         required:true
     },
 
-    Total_Hours_per_Day:{
-        type:Number,
-        required:true
-    },
+    // Total_Hours_per_Day:{
+    //     type:Number,
+    //     required:true
+    // },
 
-    Total_Hours_per_Month:{
-        type:Number,
+    // Total_Hours_per_Month:{
+    //     type:Number,
         
-    }
+    // }
 });
 
 //pass the schema

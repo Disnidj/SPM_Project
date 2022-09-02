@@ -35,7 +35,7 @@ router.get("/GetAllAttendance",(req,res)=>{
         }
             return res.status(200.).json({
                 success:true,
-                exixtingData:allAttendace
+                existingData:allAttendace
             });
         
     });

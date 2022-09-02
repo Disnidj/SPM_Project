@@ -23,6 +23,11 @@ const EmpLeaveDataSchema = new mongoose.Schema({
         require:true
     },
 
+    Leave_Reason_Other:{
+        type:String
+        
+    },
+
     Leave_From:{
         type:String,
         require:true
