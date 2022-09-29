@@ -1,48 +1,53 @@
 //import mongoose
-const mongoose= require("mongoose");
+const mongoose = require("mongoose");
 
 // import cors to disable the cors policy error
-const cors= require("cors");
+const cors = require("cors");
 
 //import express
-const express= require("express");
-
+const express = require("express");
 
 //import body-paser to convert json format data in to server objects
-const bodyparser=require("body-parser");
+const bodyparser = require("body-parser");
 
-//invoke app 
-const app=express();
+//invoke app
+const app = express();
 
 //middlewares
 app.use(bodyparser.json());
 app.use(cors());
 
-
 //import route
-const EmpAttendace= require('./routes/EmpAttendace')
-const EmpLeaveForm=require('./routes/EmpLeaveForm')
+const EmpAttendace = require("./routes/EmpAttendace");
+const EmpLeaveForm = require("./routes/EmpLeaveForm");
+
+//sandeepa
+const appointmentRouter = require("./routes/sumbittedAppointments.js");
+
+app.use("/spm/submittedAppointment", appointmentRouter);
 
 //use server to communicate with routes
 app.use(EmpAttendace);
 app.use(EmpLeaveForm);
 
 //declare the port to run the backend
-const PORT=8000;
+const PORT = 8000;
 
 //app listen function
-app.listen(PORT,()=>{
-    console.log("App is running on port ",PORT);
+app.listen(PORT, () => {
+  console.log("App is running on port ", PORT);
 });
 
 //connect db
-const DB_URL="mongodb+srv://SPM123:SPM123@spmcluster.ewx26g4.mongodb.net/SPM_Project?retryWrites=true&w=majority";
-             
-
+const DB_URL =
+  "mongodb+srv://SPM123:SPM123@spmcluster.ewx26g4.mongodb.net/SPM_Project?retryWrites=true&w=majority";
 
 //connect the app with mongo db with mongoose
-mongoose.connect(DB_URL).then (()=>{
+mongoose
+  .connect(DB_URL)
+  .then(() => {
     console.log("DB connected successfully");
-}) .catch((err)=>{
-    console.log("DB connection unsuccessful",err);
-});
+  })
+  .catch((err) => {
+    console.log("DB connection unsuccessful", err);
+  });
